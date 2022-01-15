@@ -2,6 +2,7 @@ from time import time
 from ping3 import ping
 from sys import argv
 from os import system
+import syslog
 
 def shutdown_countdown(host,wait_time):
     print('shutdown counter commencing...')
@@ -11,7 +12,7 @@ def shutdown_countdown(host,wait_time):
         current_time = time()
         elapsed_time = current_time - start_time
         response = ping(host)
-        print(str(wait_time - elapsed_time) + " seconds until shutdown")
+        syslog.syslog(str(wait_time - elapsed_time) + " seconds until shutdown")
 
         if type(response) is float:
             print('ping succeeded! shutdown aborted...')
