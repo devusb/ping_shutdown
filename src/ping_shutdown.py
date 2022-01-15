@@ -1,4 +1,4 @@
-from time import time,sleep
+from time import time
 from ping3 import ping
 from sys import argv
 from os import system,path,remove
